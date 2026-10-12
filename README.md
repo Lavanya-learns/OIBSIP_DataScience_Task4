@@ -2,51 +2,39 @@
 
 ## Project Overview
 
-This project uses Natural Language Processing (NLP) and machine learning to classify SMS messages as spam or legitimate (ham). It compares two classification algorithms and uses the better-performing model to predict new messages.
-
-## Objective
-
-To build a machine learning model that identifies unwanted or fraudulent SMS messages and distinguishes them from legitimate messages.
+This project uses Natural Language Processing (NLP) and machine learning to classify SMS messages as spam or legitimate (ham).
 
 ## Dataset
 
-* **Source:** SMS Spam Collection dataset hosted on GitHub
-* **Original records:** 5,572 messages
-* **Duplicate rows removed:** 403
-* **Records after removing duplicates:** 5,169
-* **Target labels:** Spam and Ham
+* Source: SMS Spam Collection dataset hosted on GitHub
+* Original messages: 5,572
+* Duplicate rows removed: 403
+* Messages after cleaning: 5,169
 
 ## Technologies Used
 
 * Python
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
+* Pandas and NumPy
+* Matplotlib and Seaborn
 * Scikit-learn
-* Natural Language Processing (NLP)
 * TF-IDF Vectorization
-* Pickle
+* Multinomial Naive Bayes
+* Logistic Regression
 
-## Machine Learning Models
+## Methodology
 
-1. **Multinomial Naive Bayes**
-2. **Logistic Regression**
-
-## Project Workflow
-
-1. Loaded and explored the SMS dataset.
-2. Checked missing values and duplicate records.
-3. Removed duplicate messages.
-4. Cleaned the text by converting it to lowercase and removing numbers, punctuation, and extra spaces.
-5. Converted text into numerical features using TF-IDF vectorization.
-6. Split the dataset into training and testing sets.
-7. Trained and evaluated both classification models.
-8. Compared model performance using accuracy, precision, recall, and F1-score.
+1. Loaded and explored the dataset.
+2. Checked missing values and duplicate messages.
+3. Removed duplicate rows.
+4. Preprocessed SMS text by converting it to lowercase and removing numbers and punctuation.
+5. Converted text into numerical features using TF-IDF.
+6. Split the data into training and testing sets.
+7. Trained Multinomial Naive Bayes and Logistic Regression models.
+8. Evaluated performance using accuracy, precision, recall, F1-score, and confusion matrices.
 9. Saved the selected model and TF-IDF vectorizer.
 10. Tested the saved model on new SMS messages.
 
-## Model Performance
+## Model Results
 
 | Metric    | Multinomial Naive Bayes | Logistic Regression |
 | --------- | ----------------------: | ------------------: |
@@ -55,42 +43,14 @@ To build a machine learning model that identifies unwanted or fraudulent SMS mes
 | Recall    |                  77.86% |              58.78% |
 | F1-score  |                  87.55% |              73.68% |
 
-## Selected Model
+## Conclusion
 
-Multinomial Naive Bayes was selected because it achieved better overall performance on the test dataset, with 97.20% accuracy and an 87.55% F1-score.
+Multinomial Naive Bayes performed better than Logistic Regression on the test set, achieving 97.20% accuracy and an 87.55% F1-score. The saved model successfully classified a sample promotional message as spam.
 
-Although its precision was 100% on the test set, its recall was 77.86%, meaning that some spam messages were not detected.
-
-## Sample Prediction
-
-**Input:** Congratulations! You have won a free prize. Call now!
-
-**Prediction:** Spam
-
-The saved model was successfully loaded and tested.
+The recall score indicates that some spam messages were missed, so further improvements could focus on detecting more spam while maintaining high precision.
 
 ## Project Files
 
-* **Jupyter Notebook:** Data exploration, text preprocessing, model training, evaluation, and predictions.
-* **sms_spam_model.pkl:** Saved Multinomial Naive Bayes model.
-* **tfidf_vectorizer.pkl:** Saved TF-IDF vectorizer.
-
-## How to Run
-
-1. Clone or download this repository.
-2. Install the required Python libraries.
-3. Open the Jupyter Notebook and run the cells in order.
-
-Required libraries can be installed using:
-
-`pip install pandas numpy matplotlib seaborn scikit-learn`
-
-## Conclusion
-
-This project demonstrates how NLP and machine learning can be used to classify SMS messages. Multinomial Naive Bayes outperformed Logistic Regression in the evaluation, and the saved model successfully classified a sample spam message.
-
-**Note:** Model performance is based on the selected train-test split and may vary on unseen messages.
-
-## Internship
-
-Oasis Infobyte — Data Science Internship
+* Jupyter Notebook: data exploration, preprocessing, training, and evaluation
+* `sms_spam_model.pkl`: saved Multinomial Naive Bayes model
+* `tfidf_vectorizer.pkl`: saved TF-IDF vectorizer
